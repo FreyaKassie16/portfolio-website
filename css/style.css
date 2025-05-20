@@ -102,6 +102,7 @@ section {
 
 /* --- Theme Switcher --- */
 .theme-switcher {
+	display: hidden;
     position: fixed;
     top: 20px;
     right: 20px;
