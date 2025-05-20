@@ -1,0 +1,745 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #3498db; /* A nice blue */
+    --secondary-color: #2ecc71; /* A vibrant green */
+    --text-color: #333;
+    --bg-color: #f4f7f6;
+    --card-bg-color: #ffffff;
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --border-radius: 8px;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --text-color: #f4f7f6;
+    --bg-color: #2c3e50; /* Dark blue-gray */
+    --card-bg-color: #34495e; /* Slightly lighter dark blue-gray */
+    --primary-color: #5dade2; /* Lighter blue for dark mode */
+    --secondary-color: #58d68d; /* Lighter green for dark mode */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    margin-bottom: 0.8em;
+    color: var(--primary-color);
+}
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+    color: var(--primary-color); /* Keep headings bright in dark mode */
+}
+
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after { /* Underline effect for section titles */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+/* --- Theme Switcher --- */
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001; /* Above nav */
+    box-shadow: var(--shadow);
+    font-size: 1.2rem;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+nav {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+}
+body.dark-mode nav .logo {
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    font-weight: 400;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after { /* Underline hover effect */
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+
+.btn-resume {
+    background: var(--secondary-color);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.btn-resume:hover {
+    background: #27ae60; /* Darker green */
+    color: #fff !important;
+}
+body.dark-mode .btn-resume {
+    color: var(--bg-color) !important; /* Ensure text is dark on light button */
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- Hero Section --- */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack content and visual vertically on small screens */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px; /* Account for fixed header */
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1)), var(--bg-color); /* Subtle gradient */
+    position: relative; /* For potential pseudo-elements or absolute positioned items */
+	overflow: hidden;
+}
+body.dark-mode #hero {
+     background: linear-gradient(135deg, rgba(93, 173, 226, 0.1), rgba(88, 214, 141, 0.1)), var(--bg-color);
+}
+
+/* Simple CSS Particle Background (Placeholder for #particles-js-placeholder) */
+#particles-js-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind hero-content */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Generate a few "particles" using pseudo-elements and box-shadows */
+/* This is a very basic example. For more complex particles, use a JS library. */
+#particles-js-placeholder::before,
+#particles-js-placeholder::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(var(--primary-color-rgb, 52, 152, 219), 0.1); /* Fallback if CSS var not set */
+    animation: float 15s infinite linear;
+}
+body.dark-mode #particles-js-placeholder::before,
+body.dark-mode #particles-js-placeholder::after {
+    background: rgba(var(--primary-color-rgb, 93, 173, 226), 0.1); /* Use dark mode primary */
+}
+
+#particles-js-placeholder::before {
+    width: 50px; height: 50px; top: 10%; left: 15%; animation-duration: 12s;
+}
+#particles-js-placeholder::after {
+    width: 80px; height: 80px; top: 70%; left: 80%; animation-duration: 18s;
+}
+
+/* Add more pseudo-elements for more particles if desired, or use box-shadow trick */
+#particles-js-placeholder {
+    box-shadow:
+        /* Particle 1 */
+        10vw 20vh 0 2px rgba(var(--primary-color-rgb, 52, 152, 219), 0.1),
+        /* Particle 2 */
+        80vw 30vh 0 3px rgba(var(--primary-color-rgb, 52, 152, 219), 0.08),
+        /* Particle 3 */
+        30vw 80vh 0 1px rgba(var(--primary-color-rgb, 52, 152, 219), 0.12),
+        /* Particle 4 */
+        50vw 50vh 0 2px rgba(var(--primary-color-rgb, 52, 152, 219), 0.09),
+        /* Particle 5 */
+        90vw 70vh 0 3px rgba(var(--primary-color-rgb, 52, 152, 219), 0.11),
+        /* Particle 6 */
+        5vw 90vh 0 1px rgba(var(--primary-color-rgb, 52, 152, 219), 0.1);
+    animation: moveParticles 60s linear infinite;
+}
+body.dark-mode #particles-js-placeholder {
+    box-shadow:
+        10vw 20vh 0 2px rgba(var(--primary-color-rgb, 93, 173, 226), 0.1),
+        80vw 30vh 0 3px rgba(var(--primary-color-rgb, 93, 173, 226), 0.08),
+        30vw 80vh 0 1px rgba(var(--primary-color-rgb, 93, 173, 226), 0.12),
+        50vw 50vh 0 2px rgba(var(--primary-color-rgb, 93, 173, 226), 0.09),
+        90vw 70vh 0 3px rgba(var(--primary-color-rgb, 93, 173, 226), 0.11),
+        5vw 90vh 0 1px rgba(var(--primary-color-rgb, 93, 173, 226), 0.1);
+}
+
+
+@keyframes float {
+    0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) translateX(5px) rotate(10deg); }
+    50% { transform: translateY(5px) translateX(-5px) rotate(-5deg); }
+    75% { transform: translateY(-5px) translateX(10px) rotate(5deg); }
+    100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+}
+
+@keyframes moveParticles {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(5px, 10px); }
+    50% { transform: translate(-5px, -10px); }
+    75% { transform: translate(10px, -5px); }
+    100% { transform: translate(0, 0); }
+}
+
+#hero .hero-content { /* Ensure hero content is above particles */
+    position: relative;
+    z-index: 1;
+}
+
+/* Typed.js Cursor */
+.typed-cursor {
+    opacity: 1;
+    font-weight: 100;
+    font-size: 1.5em; /* Match subtitle size */
+    color: var(--primary-color);
+    animation: blink 0.7s infinite;
+}
+body.dark-mode .typed-cursor {
+    color: var(--primary-color);
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+#hero .profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--card-bg-color);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color); /* Ensure h1 is readable */
+}
+body.dark-mode #hero h1 {
+    color: var(--text-color);
+}
+
+
+#hero h1 .highlight {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+body.dark-mode #hero h1 .highlight {
+    color: var(--primary-color);
+}
+
+#hero .subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.hero-buttons .btn {
+    margin: 0.5rem;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    margin: 0 15px;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Basic button styling */
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* --- About Section --- */
+#about .about-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+#about .about-text {
+    flex: 2;
+}
+#about .about-image {
+    flex: 1;
+    text-align: center; /* If using an icon or smaller image */
+}
+#about .about-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    /* Add creative filter if desired, e.g. grayscale */
+    /* filter: grayscale(50%); */
+}
+
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.skill-category {
+    background: var(--card-bg-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color); /* Skill titles with secondary color */
+}
+body.dark-mode .skill-category h3 {
+    color: var(--secondary-color);
+}
+
+.skill-category h3 i {
+    margin-right: 10px;
+    font-size: 1.3em; /* Make icon slightly larger than text */
+}
+
+.skill-category ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+body.dark-mode .skill-category ul li {
+    border-bottom: 1px dashed #444;
+}
+
+.skill-category ul li:last-child {
+    border-bottom: none;
+}
+
+/* --- Projects Section --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* To contain image and info */
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+.project-card .project-links .btn-details { /* New button for modal */
+    background: var(--secondary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border: none; /* Remove border if it's a button element */
+    margin-left: 5px; /* Spacing */
+}
+.project-card .project-links .btn-details:hover {
+    background: #27ae60; /* Darker green */
+    color: white;
+}
+
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Crop image nicely */
+    transition: transform 0.3s ease;
+}
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+
+.project-info {
+    padding: 20px;
+    flex-grow: 1; /* Allow info to take remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+body.dark-mode .project-info h3 {
+    color: var(--primary-color);
+}
+
+
+.project-info p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Pushes links to bottom */
+}
+
+.project-info .tech-stack {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+.project-links {
+    margin-top: auto; /* Pushes to bottom */
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.project-links .btn-link {
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.project-links .btn-link i {
+    margin-right: 5px;
+}
+
+.project-links .btn-link:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+body.dark-mode .project-links .btn-link {
+    color: var(--bg-color); /* Dark text on light button */
+}
+
+/* --- Contact Section --- */
+#contact {
+    text-align: center;
+    background-color: var(--card-bg-color); /* Different bg for contrast */
+}
+body.dark-mode #contact {
+    background-color: var(--bg-color); /* Keep distinct */
+}
+
+#contact p {
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    font-size: 1.1rem;
+}
+
+.contact-methods p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+.contact-methods p i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+.contact-methods a {
+    font-weight: bold;
+}
+
+#contact .btn-primary { /* Specific styling for download resume button */
+    margin-top: 30px;
+    background-color: var(--secondary-color);
+}
+#contact .btn-primary:hover {
+    background-color: #27ae60; /* Darker shade of secondary */
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    background: #333; /* Dark footer */
+    color: #f4f7f6;
+}
+body.dark-mode footer {
+    background: #1c2833; /* Even darker for dark mode */
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+footer .fa-heart {
+    transition: transform 0.3s ease;
+}
+footer:hover .fa-heart {
+    transform: scale(1.3);
+    color: #ff7b7b !important; /* Override inline style on hover */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide for hamburger menu */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 65px; /* Adjust based on header height */
+        left: 0;
+        background: var(--card-bg-color);
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    nav ul.active {
+        display: flex; /* Show when active */
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    #hero {
+        padding-top: 100px; /* More padding for smaller screens */
+    }
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    #hero .subtitle {
+        font-size: 1.2rem;
+    }
+    #hero .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    #about .about-container {
+        flex-direction: column;
+    }
+    #about .about-image {
+        margin-top: 30px;
+        max-width: 300px; /* Control image size */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr; /* Stack skills */
+    }
+    .projects-grid {
+        grid-template-columns: 1fr; /* Stack projects */
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+	
+	.modal-content {
+        padding: 20px;
+        max-height: 90vh; /* Ensure modal is scrollable on small screens */
+        overflow-y: auto;
+    }
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* --- Animations (Subtle) --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply fade-in to sections for a nice entry effect if desired */
+/* section > *:not(h2) {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+} */
+
+/* Add a slight delay for elements within sections for a staggered effect */
+/* section .skill-category, section .project-card {
+    animation-delay: 0.2s;
+} */
+
+/* Example of a more creative element - perhaps a data-like background for hero */
+/*
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('path/to/subtle-data-pattern.svg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 50% auto; // Adjust as needed
+    opacity: 0.05; // Very subtle
+    z-index: -1; // Behind content
+}
+*/

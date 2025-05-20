@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaun - Data Scientist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  <!-- Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+</head>
+<body>
+    <div class="theme-switcher">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">Shaun</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="resume/ACENAS_Resume.pdf" target="_blank" class="btn-resume">Resume</a></li>
+            </ul>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <!-- Simple CSS Particle Background Container -->
+            <div id="particles-js-placeholder"></div>
+            <div class="hero-content">
+                <img src="images/profile.jpg" alt="Shaun" class="profile-pic">
+                <h1>Hi, I'm <span class="highlight">Shaun</span>.</h1>
+                <p class="subtitle"><span id="typed-output"></span></p> <!-- For Typed.js -->
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourlinkedin" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/yourgithub" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Hello! I'm a passionate and results-driven graduating BS Data Science student from Mapúa University. My journey into data science was sparked by a fascination with how data can unravel complex problems and drive impactful decisions..</p>
+                    <p>I thrive on uncovering hidden patterns in data, building predictive models, and translating complex findings into actionable strategies. I'm proficient in Python, R, SQL, and various machine learning libraries. I'm eager to apply my skills to solve real-world problems and contribute to a data-driven organization.</p>
+                    <p>When I'm not wrangling data, you can find me hitting the gym, exploring new workout routines, or immersing myself in the world cinema, from indie flicks to blockbusters. I believe a balanced life fuels creativity and analytical thinking!</p>
+                </div>
+                <div class="about-image">
+                    <!-- Could be another picture of you, or a relevant graphic -->
+                    <img src="images/about_me_visual.png" alt="Data Visualization Abstract" style="opacity:0.7;">
+                     <!-- Placeholder for now -->
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>My Skillset</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul>
+                        <li>Python (Pandas, NumPy, Scikit-learn, PyTorch)</li>
+                        <li>R</li>
+                        <li>SQL (PostgreSQL, MySQL)</li>
+                        <li>Git & GitHub</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                    <ul>
+                        <li>Regression & Classification</li>
+                        <li>Clustering & Dimensionality Reduction</li>
+                        <li>Natural Language Processing (NLP) Basics</li>
+                        <li>Time Series Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-pie"></i> Data Visualization</h3>
+                    <ul>
+                        <li>Matplotlib & Seaborn</li>
+                        <li>Tableau & Power BI</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Tools & Platforms</h3>
+                    <ul>
+                        <li>VS Code & Neovim</li>
+                        <li>Cloud (GCP AI Platform - basic exposure)</li>
+                        <li>Docker</li>
+                        <li>Excel & Google Sheets</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects Showcase</h2>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Let's Connect!</h2>
+            <p>I'm currently looking for Data Science roles. If you have an opportunity, or just want to chat about data, feel free to reach out!</p>
+            <div class="contact-methods">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:youremail@example.com">shaunmarvin.acenas@gmail.com</a></p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/yourlinkedin" target="_blank">linkedin.com/in/shaun-marvin-acenas-8bb0711b3</a></p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/yourgithub" target="_blank">github.com/FreyaKassie16</a></p>
+            </div>
+             <a href="resume/ACENAS_Resume.pdf" target="_blank" class="btn btn-primary">Download My Resume</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="currentYear"></span> Shaun Marvin S. Acenas. Crafted with <i class="fas fa-heart" style="color: #e25555;"></i> from scratch.</p>
+    </footer>
+	
+	<!-- Project Modal Structure (Hidden by default) -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <img id="modalProjectImage" src="" alt="Project Image">
+            <h3 id="modalProjectTitle"></h3>
+            <p id="modalProjectDescription"></p>
+            <p><strong>Technologies Used:</strong> <span id="modalProjectTech"></span></p>
+            <div id="modalProjectLinks" class="project-links">
+                <!-- Links will be populated by JS -->
+            </div>
+            <h4>Key Features & Learnings:</h4>
+            <ul id="modalProjectDetails">
+                <!-- Details will be populated by JS -->
+            </ul>
+        </div>
+    </div>
+	
+	<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script> <!-- Typed.js CDN -->
+    <script src="js/script.js"></script>
+</body>
+</html>

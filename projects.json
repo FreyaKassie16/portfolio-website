@@ -1,0 +1,38 @@
+[
+    {
+        "id": "project1",
+        "title": "Customer Churn Prediction",
+        "thumbnail": "images/project1_thumb.png",
+        "short_description": "Developed a model to predict customer churn for a telecom company, achieving 92% accuracy and identifying key churn drivers.",
+        "long_description": "This project aimed to proactively identify customers at high risk of churning from a telecommunications service. Utilized historical customer data, including demographics, usage patterns, and service interactions. The primary goal was to build a robust classification model to enable targeted retention strategies.",
+        "tech_stack": ["Python", "Scikit-learn", "Pandas", "Matplotlib", "Jupyter Notebook"],
+        "github_link": "https://github.com/yourgithub/project1",
+        "live_demo_link": null,
+        "case_study_link": null,
+        "details": [
+            "Performed extensive Exploratory Data Analysis (EDA) to understand data distributions and correlations.",
+            "Engineered new features from existing data to improve model performance.",
+            "Compared multiple classification algorithms (Logistic Regression, Random Forest, Gradient Boosting).",
+            "Achieved an F1-score of 0.85 on the test set for the churn class.",
+            "Identified 'contract type' and 'monthly charges' as top predictors of churn."
+        ]
+    },
+    {
+        "id": "project2",
+        "title": "Sentiment Analysis of Movie Reviews",
+        "thumbnail": "images/project2_thumb.png",
+        "short_description": "Analyzed sentiment of movie reviews using NLP techniques, visualizing trends in public opinion on new releases.",
+        "long_description": "This project involved scraping movie reviews from a popular website and applying Natural Language Processing (NLP) techniques to classify their sentiment as positive, negative, or neutral. The objective was to gauge public reception towards newly released films and track sentiment shifts over time.",
+        "tech_stack": ["Python", "NLTK", "spaCy", "VADER Sentiment", "Seaborn", "Beautiful Soup"],
+        "github_link": "https://github.com/yourgithub/project2",
+        "live_demo_link": "https://your-live-demo-link.com/movie-sentiment",
+        "case_study_link": null,
+        "details": [
+            "Implemented web scraping to collect a dataset of over 5,000 movie reviews.",
+            "Preprocessed text data: tokenization, stop-word removal, lemmatization.",
+            "Utilized VADER sentiment lexicon for initial sentiment scoring.",
+            "Trained a Naive Bayes classifier on TF-IDF features for custom sentiment classification.",
+            "Visualized sentiment distribution per movie and overall trends using interactive charts."
+        ]
+    }
+]
